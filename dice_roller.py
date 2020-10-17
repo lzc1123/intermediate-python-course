@@ -1,15 +1,18 @@
 import random
 def main():
-  roll = 5
-  roll = random.randint(1, 6)
-  print('roll',roll)
-  dice_rolls = 2
+
+  dice_rolls = int(input('你想掷几个骰子? '))
+  dice_size = int(input('这个骰子有多少面? '))
   dice_sum = 0
   for i in range(0, dice_rolls):
-    roll = random.randint(1, 6)
+    roll = random.randint(1, dice_size)
     dice_sum += roll
-    print(f'You rolled a {roll}')
+    if roll == 1:
+      print(f'You rolled a {roll}! Critical Fail')
+    elif roll == dice_size:
+      print(f'You rolled a {roll}! Critical Success!')
+    else:
+      print(f'You rolled a {roll}')
   print(f'You have rolled a total of {dice_sum}')
-
 if __name__== "__main__":
   main()
